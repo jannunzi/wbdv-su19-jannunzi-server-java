@@ -1,14 +1,20 @@
 package com.example.wbdvsu19jannunziserverjava.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="widgets")
 public class Widget {
-    private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String name;
     private String type;
     private String text;
     private int size;
     private String src;
 
-    public Widget(Long id, String name, String type) {
+    public Widget(Integer id, String name, String type) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -17,11 +23,11 @@ public class Widget {
     public Widget() {
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

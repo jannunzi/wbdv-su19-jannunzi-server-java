@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.wbdvsu19jannunziserverjava.models.User;
 
 @RestController
-public class UserController {
+public class UserController implements AAA {
     static List<User> users = new ArrayList<User>();
     static {
         users.add(new User(123, "alice", "Alice"));
@@ -32,6 +32,11 @@ public class UserController {
     @GetMapping("/users")
     public List<User> findAllUsers() {
         return users;
+    }
+
+    @Override
+    public String hello() {
+        return null;
     }
     // UPDATE - Updating
     // DELETE - Deleting
