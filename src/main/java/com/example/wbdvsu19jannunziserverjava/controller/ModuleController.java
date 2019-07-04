@@ -18,6 +18,13 @@ public class ModuleController {
     @Autowired
     CourseRepository courseRepository;
 
+    // CRUD
+    // CREATE   - POST /api/courses/{cid}/modules
+    // READ ALL - GET  /api/courses/{cid}/modules - retrieve all courses
+    // READ ONE - GET  /api/modules/{mid} - retrieve by id
+    // UPDATE   - PUT  /api/modules/{mid} - update course
+    // DELETE   - DELETE /api/modules/{mid}
+
     @GetMapping("/api/modules")
     public List<Module> findAllModules() {
         return repository.findAllModules();

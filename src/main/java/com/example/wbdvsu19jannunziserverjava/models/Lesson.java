@@ -3,11 +3,10 @@ package com.example.wbdvsu19jannunziserverjava.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
-@Table(name = "modules")
-public class Module {
+@Table(name = "lessons")
+public class Lesson {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -15,23 +14,7 @@ public class Module {
 
     @ManyToOne
     @JsonIgnore
-    private Course course;
-
-    @OneToMany(mappedBy = "module")
-    private List<Lesson> lessons;
-
-    @Transient
-    public String getCourseTitle() {
-        return course.getTitle();
-    }
-
-    public Course getCourse() {
-        return course;
-    }
-
-    public void setCourse(Course course) {
-        this.course = course;
-    }
+    private Module module;
 
     public Integer getId() {
         return id;
@@ -49,11 +32,11 @@ public class Module {
         this.title = title;
     }
 
-    public List<Lesson> getLessons() {
-        return lessons;
+    public Module getModule() {
+        return module;
     }
 
-    public void setLessons(List<Lesson> lessons) {
-        this.lessons = lessons;
+    public void setModule(Module module) {
+        this.module = module;
     }
 }
